@@ -1,48 +1,90 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 
 <style>
 h1 {text-align: center;}
 body {
   background-color: #E0FFFF; }
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.button1 {background-color: #7FFFD4;}
+
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
 </style>
+
 
 
 <meta charset="utf-8">
 <meta name="description" content="summary of what this page is about">
 
-<title> CIS 114 Pages</title>
-
-<h1 style="font-family:'Copperplate'"> <strong> Welcome to CIS 114 Pages! </strong></h1>
-<br>
+<title> CIS 114 Assignments</title>
 
 </head>
+
+
+
+
 <body>
+
+<h1 style="font-family:'Copperplate'"> <strong> Welcome to CIS 114 Pages! </strong></h1>
 
 <img src="https://www.picpedia.org/highway-signs/images/computer-science.jpg" alt="background image" width="500" height="500" style="float:right">
 
-<br><br>
+<br>
 
 <section>
-<h3> This is the beginning of the assignments: </h3>
+<h3> CIS 114 Assignments: </h3>
 </section>
 
 
 
 <ul>
-  <li style="list-style-type:square"> <a href="hw2.html">Homework 2</a> </li>
-  <li style="list-style-type:square"> <a href="hw3.html">Homework 3</a> </li>
-  <li style="list-style-type:square"> <a href="hw4.html">Homework 4</a> </li>
-  <li style="list-style-type:square"> <a href="hw5.html">Homework 5</a> </li>
-  <li style="list-style-type:square"> <a href="hw6.html">Homework 6</a> </li>
-  <li style="list-style-type:square"> <a href="hw7.html">Homework 7</a> </li>
+  <li> <button onclick="document.location='hw2.html'">Homework 2</button> </li>
+
+  <li style="list-style-type:square"> <a href="hw3.html">  <i>Homework 3</i> </a> </li>
+
+  <li style="list-style-type:square"> <a href="hw4.html"> <strong> Homework 4 </strong> </a> </li>
+
+ <li style="list-style-type:square"> <button class="button button1" onclick="document.location='hw5.html'">Homework 5</button>  </li>
+
+  <li style="list-style-type:square"> <button class="button button2" onclick="document.location='hw6.html'">Homework 6</button>  </li>
+
+  <li style="list-style-type:square"> <a href="hw7.html">Click the homework icon for assignment 7 --> <img src="https://www.clipartmax.com/png/middle/345-3457739_22-sep-homework-icon-png.png" alt="Homework image" width="100" height="132"> </a> </li>
+
   <li style="list-style-type:square"> <a href="hw8.html">Homework 8</a> </li>
+
 </ul>
+
+
 
 
 </body>
