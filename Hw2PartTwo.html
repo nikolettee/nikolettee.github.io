@@ -54,13 +54,13 @@ function process() {
     var number1, number2, number3,
             
 
-    //input 3 integers from form text boxes using getElementById 
+    //input 3 integers from form text boxes
 
-    number1 = document.getElementById("num1").value;
-     
-    number2 = document.getElementById("num2").value;
-      
-    number3 = document.getElementById("num3").value;
+    
+number1 = document.form["myform"].elements["num1"].value;
+number2 = document.form["myform"].elements["num2"].value;
+number3 = document.form["myform"].elements["num3"].value;
+
      
     
 
@@ -107,9 +107,9 @@ document.getElementById("result").value = ("The inputted numbers were: " + n1 + 
 
 function errorMsg() {
 
-var n1 = document.form["myform"]["num1"].value;
-var n2 = document.form["myform"]["num2"].value;
-var n3 = document.form["myform"]["num3"].value;
+var N1 = document.form["myform"]["num1"].value;
+var N2 = document.form["myform"]["num2"].value;
+var N3 = document.form["myform"]["num3"].value;
 
 if (n1.length<1){
 document.getElementById("error-num1").value = "Please enter an integer";
@@ -167,7 +167,7 @@ Task: Use form input boxes to input three integers and use a form text area to d
 
 <p>
 <label for="num1">First Number </label>: <span id="error-num1"></span>
-<input type="text" id="num1" name="num1" autofocus placeholder="Enter a number">
+<input type="number" id="num1" name="num1" autofocus placeholder="Enter a number">
 </p>
 </div>
 
@@ -175,7 +175,7 @@ Task: Use form input boxes to input three integers and use a form text area to d
 <div class="form">
 <p>
 <label for="num2">Second Number </label>:<span id="error-num2"></span>
-<input type="text" id="num2" name="num2" placeholder="Enter a number">
+<input type="number" id="num2" name="num2" placeholder="Enter a number">
 </p>
 </div>
 
@@ -183,7 +183,7 @@ Task: Use form input boxes to input three integers and use a form text area to d
 <div class="form">
 <p>
 <label for="num3">Third Number </label>:<span id="error-num3"></span>
-<input type="text" id="num3" name="num3" placeholder="Enter a number">
+<input type="number" id="num3" name="num3" placeholder="Enter a number">
 </p>
 </div><br>
 
