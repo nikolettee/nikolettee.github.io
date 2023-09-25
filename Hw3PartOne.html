@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS functions">
+<title>CIS 114 Assignment 3 Functions</title>
+
+<style>
+
+h1 {text-align: center;
+margin-top: -75px;}
+
+h2 {text-align: center;}
+h3 {text-align: center;}
+h4 {text-align: center;}
+ p {text-align: center;}
+
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  max-width: 300px;
+  height: 240px;
+  margin: 0 auto;
+  overflow-x: auto;
+border: 1px solid black;
+background-color:#F5FFFA;
+}
+
+
+body {
+  background-color: #E0FFFF; 
+}
+
+
+.main {	width:600px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px}
+
+
+.myDiv {
+border: 5px outset gray;
+background-color: white; 
+text-align: left;
+padding: 8px 12px;
+}
+
+
+label {
+display: inline-block;
+width: 200px;
+text-align: left;}
+
+input {text-align: right;}
+
+
+.outline{
+border: 2px solid black;
+  outline: #5F9EA0 solid 10px;
+  margin: auto;  
+  padding: 30px;
+}
+
+</style>
+
+<script>
+
+//display with div tag
+//checks for valid input, i.e., that the input is between 0-100 and the input are numbers. 
+
+function testValues() {
+
+  // Get the value of the input field with id="" from the form
+  let homeworkAverage = document.getElementById("hwAvg").value;
+
+let midtermExamScore = document.getElementById("midterm").value;
+
+let finalExamScore  = document.getElementById("exam").value;
+
+let participation = document.getElementById("participation").value;
+
+
+
+  // validate input: if variable is Not a Number or less/greater 
+  
+let text = "Input not valid. Please enter only numbers between 0 -100.";
+
+  if (isNaN(homeworkAverage) || homeworkAverage < 0 || homeworkAverage > 100 || homeworkAverage =="" ||
+isNaN(midtermExamScore) || midtermExamScore < 0 || midtermExamScore > 100 || midtermExamScore =="" ||
+isNaN(finalExamScore) || finalExamScore < 0 || finalExamScore > 100 || finalExamScore =="" ||
+isNaN(participation) || participation < 0 || participation > 100 || participation =="" ) {
+    document.getElementById("resultDiv").innerHTML = text.toString();
+  
+  }
+
+ else {
+
+// convert 
+ var average = parseInt(homeworkAverage);
+ var midterm = parseInt(midtermExamScore);
+ var final = parseInt(finalExamScore);
+ var engage = parseInt(participation);
+
+
+var final_avg = (.5 * average) + (.2 * midterm) + (.2 * final) + (.1 * engage)
+
+
+//use true in switch statement, then case ranges for final_avg will work
+
+     switch(true) {
+
+       case (final_avg >= 90):
+
+          document.getElementById("resultDiv").innerHTML = ("The final average is " + Math.round(final_avg ) + "." +  
+"<br> The final grade is A, excellent work!")
+          break;
+
+       case (final_avg >= 80):
+          document.getElementById("resultDiv").innerHTML = ("The final average is " + Math.round(final_avg ) +  "." +
+"<br>The final grade is B, great work!")
+          break;
+
+       case (final_avg >= 70):
+          document.getElementById("resultDiv").innerHTML = ("The final average is " + Math.round(final_avg ) + "." + 
+"<br>The final grade is C, average work!") 
+          break;
+
+       case (final_avg >= 60):
+          document.getElementById("resultDiv").innerHTML = ("The final average is " + Math.round(final_avg ) +  "." +
+"<br>The final grade is D, poor work!  You must re-take the course.")
+          break;
+
+       default:
+          document.getElementById("resultDiv").innerHTML = ("The final average is " + Math.round(final_avg ) + "." + 
+"<br>The final grade is F, failing work!  You must re-take the course.")
+
+
+
+//end switch logic
+}
+
+}// end else
+
+}// end testing
+
+
+
+function reset(){
+document.getElementById("resultDiv").value= "";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!--icon-->
+<p style= "font-size: 30px; font-family:'Copperplate'; line-height: .8;text-align: left; margin-left: 15px; margin-top: 0px;"> <strong> Javascript and <br> Ajax works </strong> <br></p>
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 70px; height: 80px; margin-top: -80px; margin-left: 210px;" id="icon">
+
+
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 3 Part One- Functions </strong> </h1> 
+
+<section  class="main">
+<h2> Student Grades </h2>
+
+<h4>Overview: Display a form for student grades in HTML and check for valid input to calculate the student's final average and final letter grade in Javascript</h4><br>
+
+<p>Criteria: </p>
+
+<table>
+  <tr>
+    <th> Percentage </th>
+    <th>Letter Grade</th>
+  </tr>
+  <tr>
+    <td>90-100</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>80-89</td>
+    <td>B</td>
+  </tr>
+
+<tr>
+    <td>70-79</td>
+    <td>C</td>
+  </tr>
+
+<tr>
+    <td>60-69</td>
+    <td>D</td>
+  </tr>
+
+<tr>
+    <td>0-59</td>
+    <td>F</td>
+  </tr>
+
+</table>
+
+<br><br>
+
+
+<form >
+
+<div class="outline"> 
+
+<label for="hwAvg"> Homework Average: </label>
+<input type="number" id="hwAvg"  name="hwAvg" autofocus placeholder="Enter a number"> <br><br>
+
+
+<label for="midterm"> Mid-Term Exam Score: </label>
+<input type="number" id="midterm"  name="midterm" placeholder="Enter a number"> <br><br>
+
+
+<label for="exam"> Final Exam Score: </label>
+<input type="number" id="exam"  name="exam" placeholder="Enter a number"> <br><br>
+
+
+<label for="participation"> Participation: </label>
+<input type="number" id="participation"  name="participation" placeholder="Enter a number"> <br><br>
+
+ 
+<!-- button for submit the data and a button to clear the form -->
+<input type="button" onclick="testValues();" value="SUBMIT"> 
+<input type="reset"  onclick="reset();" value="RESET"><br><br>
+
+
+<div class="myDiv">
+  <p> Result: </p><div id="resultDiv"></div>
+  
+</div>
+</div>
+<br>
+
+</form>
+
+<br> <br>
+<p> <a href="Hw3PartTwo.html"> <i> Part Two </i> </a> will be user interactive using input boxes to enter a salesperson's name and the quantity of items sold to then calculate the earnings, while checking for valid inputs.</p>
+
+
+<br><br><br>
+</section>
+
+<p style=text-align:center > <a href="hw1.html">Back to Main Page</a></p>
+
+<br><br>
+</body>
+
+</html> 
+
+
+
+<!-- 
+Create a webpage that contains:
+the heading Student Grades,
+
+a form with input boxes for Homework Average, Mid-Term Exam Score, Final Exam Score, and Participation - all those grades will be entered as integers
+
+you should have a button for submitting the data and a button to clear the form
+
+you should have a textarea (or div or paragraph element) to present final results and/or error message
+
+Create a script that:
+checks for valid input, i.e., that the input is between 0-100 and that, of course, the input are all numbers. 
+
+If all input is valid then calculate and display the student's final average according to the formula:
+
+final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * participation)
+
+in the output area, you will present the student's final average (rounded to an integer) and final letter grade using the following criteria: 
+
+Points/Percentage to Letter Grade
+Percentage	Letter Grade
+90-100	A
+80-89	B
+70-79	C
+60-69	D
+0-59	F
+
+If the student's final grade is 'D' or 'F' then display "Student must retake the course". 
+If the input of the user is invalid, you will present an error message and, of course, no result will be presented
+
+Note: The user should be able to reuse that same form for another student!
+
+-->
+
+
+
