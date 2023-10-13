@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<meta charset="utf-8">
+<meta name="description" content="javascript, Ajax assignment two">
+<title> HW2: Part Two </title>
+
+<style>
+
+h2 {text-align: center;}
+h4 {text-align: center;}
+p {text-align: center;}
+
+
+body {
+  background-color: #E0FFFF; }
+
+
+.main {	width:400px;
+	margin:0px auto;
+	text-align:left; }
+
+
+div {
+margin-bottom: 10px;
+}
+
+
+label {
+display: inline-block;
+width: 110px;
+text-align: left;}
+
+
+input {text-align: right;}
+
+</style>
+
+
+
+
+<script>
+ 
+// process submit function
+
+function process() {
+
+ //declare variables
+    var number1, number2, number3,
+            
+
+    //input 3 integers from form text boxes using getElementById 
+
+    number1 = document.getElementById("num1").value;
+     
+    number2 = document.getElementById("num2").value;
+      
+    number3 = document.getElementById("num3").value;
+     
+    
+
+     //convert numbers from automatic webpage strings to integers
+
+         n1 = parseInt(number1);
+         n2 = parseInt(number2);
+         n3 = parseInt(number3);
+        
+
+   //calculate the sum, the average, and the product of the three integers
+
+     let sum = n1 + n2 + n3;
+     let average = sum / 3;
+     let  product = n1 * n2 * n3;
+   
+
+
+   //calculate the smallest and the largest of the three integers typed; use the JS Math Object Methods of min and max
+
+     let min = Math.min(n1, n2, n3);
+     let max = Math.max(n1, n2, n3);
+
+
+
+      //present results in the text area rather than text boxes output
+
+document.getElementById("result").value = ("The inputted numbers were: " + n1 + ", " + n2 + ", " +  n3  +
+"\nThe sum is: " +  sum  +
+"\nThe average is: " + average +
+"\nThe product is: " + product +
+"\nThe minimum number is: " + min +
+"\nThe maximum number is: " + max);
+
+
+
+}
+
+
+
+
+
+// error message for incorrect input
+
+function errorMsg() {
+
+var n1 = document.form["myform"]["num1"].value;
+var n2 = document.form["myform"]["num2"].value;
+var n3 = document.form["myform"]["num3"].value;
+
+if (n1.length<1){
+document.getElementById("error-num1").value = "Please enter an integer";
+}
+
+if (n2.length<1){
+document.getElementById("error-num2").innerHTML = "Please enter an integer";
+}
+
+if (n3.length<1) {
+document.getElementById('error-num3').innerHTML = "Please enter an integer";
+}
+
+
+if(n1.length<0 || n2.length<0 || n3.length<0) {
+document.getElementById("result").innerHTML = "Please enter an integer";
+
+return false;
+}
+
+if (isNaN(n1)) {
+document.getElementById("error-num1").innerHTML = "Please enter an integer";
+
+}
+
+
+}
+
+
+
+</script>
+
+
+
+
+</head>
+<body>
+
+<header>
+<h2> Forms </h2>
+</header>
+
+
+
+<section class="main">
+<h4 style="font: bold 14px 'courier'; text-align: justify;  width: 500px;">
+Task: Use form input boxes to input three integers and use a form text area to display calculations from inputs.</h4><br>
+
+
+
+
+<form id="myform" name="myform" onsubmit="errorMsg()" >
+
+<div class="form">
+
+<p>
+<label for="num1">First Number </label>: <span id="error-num1"></span>
+<input type="text" id="num1" name="num1" autofocus placeholder="Enter a number">
+</p>
+</div>
+
+
+<div class="form">
+<p>
+<label for="num2">Second Number </label>:<span id="error-num2"></span>
+<input type="text" id="num2" name="num2" placeholder="Enter a number">
+</p>
+</div>
+
+
+<div class="form">
+<p>
+<label for="num3">Third Number </label>:<span id="error-num3"></span>
+<input type="text" id="num3" name="num3" placeholder="Enter a number">
+</p>
+</div><br>
+
+
+<p>Results: <textarea rows="6" cols="40" id="result" readonly></textarea></p>
+
+<input type="button" onclick="process()" value="SUBMIT">
+<input type="reset" value="RESET"><br>
+
+
+</form>
+
+<br> <br>
+<p> <a href="Hw2PartOne.html"> HW2: Part One </a> of assignment two will display some embellished letters and numbers with Javascript being used.</p>
+
+<br><br>
+<p> <a href="hw1.html"> Back to Main Page </a> </p>
+
+</section>
+</body>
+
+</html> 
