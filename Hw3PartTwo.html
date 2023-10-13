@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS functions part two">
+<title>CIS 114 Assignment 3 Functions</title>
+
+<style>
+
+h2 {text-align: center;}
+h3 {text-align: center;}
+h4 {text-align: center;}
+
+
+body {
+  background-color: #E0FFFF; 
+}
+
+
+.main {	width:500px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px}
+
+
+table, th, td {
+  border: 1px solid black;
+  background-color:#fffff0;
+}
+
+
+table {
+  width: 300%;
+  max-width: 500px;
+  height: 240px;
+  margin: 0 auto;
+  overflow-x: auto;
+border: 1px solid black;
+background-color:#fffff0;
+}
+
+
+.myDiv {
+border: 5px outset gray;
+background-color: white; 
+text-align: left;
+padding: 8px 12px;
+}
+
+
+label {
+display: inline-block;
+width: 100px;
+text-align: left;}
+
+
+input {
+text-align: right;}
+
+
+.round {
+border: 4px solid gray;
+  border-radius: 15px;
+  padding: 30px;
+background-color:#F0FFFF
+
+}
+
+
+p {text-align: center;
+}
+
+h1 {text-align: center;
+margin-top: -75px;}
+
+</style>
+
+
+<script>
+
+//check for valid inputs 
+function testValues() {
+
+  // Get the value of the input field with id="" from the form
+
+  let name = document.getElementById("name").value;
+let item1 = document.getElementById("item1").value;
+let item2  = document.getElementById("item2").value;
+let item3 = document.getElementById("item3").value;
+let item4 = document.getElementById("item4").value;
+
+
+
+  // validate input: if variable is Not a Number or less/greater 
+let text = "Try again and please enter only a name or only numbers greater than zero.";
+
+  if ( !name ||
+isNaN(item1) || item1 < 1 || !item1 ||
+isNaN(item2) || item2 < 1 || !item2 ||
+isNaN(item3) || item3 < 1 || !item3 ||
+isNaN(item4) || item4 < 1 || item4 =="") {
+    document.getElementById("resultDiv").innerHTML = text.toString();
+    document.forms["myform"].elements["name"].focus();
+  } 
+
+
+ else {
+
+let salesperson = document.getElementById("name").value;
+document.getElementById("resultDiv").innerHTML = "Inputs are valid for " + salesperson + "! Proceed to the table.";
+
+// convert 
+ var itemOne = parseInt(item1);
+ var itemTwo = parseInt(item2);
+ var itemThree = parseInt(item3);
+ var itemFour = parseInt(item4);
+
+
+// set quantities on table
+document.getElementById("quantity1table").innerHTML = itemOne;
+document.getElementById("quantity1table").style.color = "#708090";
+
+document.getElementById("quantity2table").innerHTML = itemTwo;
+document.getElementById("quantity2table").style.color = "#708090";
+
+document.getElementById("quantity3table").innerHTML = itemThree;
+document.getElementById("quantity3table").style.color = "#708090";
+
+document.getElementById("quantity4table").innerHTML = itemFour;
+document.getElementById("quantity4table").style.color = "#708090";
+
+
+//set totals on table
+var calculateOne = itemOne * 20.99;
+document.getElementById("total1table").innerHTML = calculateOne.toFixed(2);
+document.getElementById("total1table").style.textAlign = "right";
+document.getElementById("total1table").style.color = "#708090";
+
+
+var calculateTwo = itemTwo * 12.75;
+document.getElementById("total2table").innerHTML= calculateTwo;   
+document.getElementById("total2table").style.textAlign = "right";
+document.getElementById("total2table").style.color = "#708090";
+
+
+var calculateThree = itemThree * 9.95;
+document.getElementById("total3table").innerHTML= calculateThree.toFixed(2);
+document.getElementById("total3table").style.textAlign = "right";
+document.getElementById("total3table").style.color = "#708090";
+
+
+var calculateFour = itemFour * 35.89;
+document.getElementById("total4table").innerHTML= calculateFour.toFixed(2);
+document.getElementById("total4table").style.textAlign = "right";
+document.getElementById("total4table").style.color = "#708090";
+
+
+
+<!-- Total boxes (for item 1, item 2, item 3, item 4), then you calculate the 9% of that value and, finally, you add 250 to that result to give the total earnings of the seller! -->
+
+var totalAmount = calculateOne + calculateTwo + calculateThree + calculateFour;
+document.getElementById("totalAmounttable").innerHTML= totalAmount.toFixed(2);
+document.getElementById("totalAmounttable").style.textAlign = "right";
+document.getElementById("totalAmounttable").style.color = "#708090";
+
+
+var totalWeekly = totalAmount * .09 + 250;
+document.getElementById("totalWeeklytable").innerHTML= totalWeekly.toFixed(2);
+document.getElementById("totalWeeklytable").style.textAlign = "right";
+document.getElementById("totalWeeklytable").style.backgroundColor = "#D2B48C";   
+
+
+/*
+
+var tableone = document.getElementById("display");
+const rowlength = tableone.rows.length - 2;
+
+var x = document.getElementById("display").rows[2].cells[3].innerHTML
+var y = document.getElementById("quantity1table").value;
+x.innerHTML = itemOne;
+
+var erow = tableone.rows.cells;
+for (var i =1; i<rowlength; i++) {
+var erow = tableone.rows[i].cells;
+
+erow[3].innerHTML = (erow[1].innerHTML * itemOne).toFixed(2);
+erow[3].innerHTML = (erow[2].innerHTML * itemTwo).toFixed(2);
+erow[3].innerHTML = (erow[3].innerHTML * itemThree).toFixed(2);
+erow[3].innerHTML = (erow[1].innerHTML * itemFour).toFixed(2);}
+
+*/
+
+
+
+}// end else
+
+}// end testing
+
+
+
+function reset()
+{
+document.getElementById("resultDiv").innerHTML = "";
+}
+
+</script>
+
+
+
+</head>
+<body>
+<header>
+
+<p style= "font-size: 30px; font-family:'Copperplate'; line-height: .8;text-align: left; margin-left: 15px; margin-top: 0px;"> <strong> Javascript and <br> Ajax works </strong> <br></p>
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 70px; height: 80px; margin-top: -80px; margin-left: 210px;" id="icon">
+
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 3 Part Two- Functions </strong> </h1> 
+</header>
+
+
+
+<section class="main">
+<h3> Objective: User interactive sales computation with use from input boxes to enter a salesperson's name and the quantity of items sold by that person to then calculate the earnings, while checking for valid inputs.</h3><br>
+
+
+<section class="round">
+<h2> Sales Calculator </h2>
+<form name="myform" >
+
+<br><br>
+<div class="input">
+
+<label for="name"> Salesperson Name: </label>
+<input type="text" id="name"  name="name" autofocus placeholder="Enter a name"> <br><br>
+
+<p style=text-align:left> For each item, enter the quantity sold by the salesperson:</p>
+
+<label for="item1"> Item 1: </label>
+ <input type="number" id="item1"  name="item1" placeholder="Enter a number">  <br><br>
+
+<label for="item2"> Item 2: </label>
+<input type="number" id="item2"  name="item2" placeholder="Enter a number">  <br><br>
+
+<label for="item3"> Item 3: </label>
+<input type="number" id="item3"  name="item3" placeholder="Enter a number">  <br><br>
+
+<label for="item4"> Item 4: </label>
+<input type="number" id="item4"  name="item4" placeholder="Enter a number"> <br><br><br>
+ 
+<!-- button for submit the data and a button to clear the form -->
+<input type="button" onclick="testValues()" value="SUBMIT"> <br><br>
+<input type="reset" value="CLEAR" onclick="location.reload();"><br>
+
+</div>
+</form><br><br>
+
+<div class="myDiv" >
+    <p> Result: </p> <div id="resultDiv"></div>  
+</div>
+
+</section> <br><br>
+
+<table id="display" >
+  <tr>
+    <th>Item# </th>
+    <th>Price($)</th>
+    <th>Qty Sold</th>
+    <th>Total($)</th>
+  </tr>
+  
+  <tr>
+    <td>1</td>
+    <td>20.99</td>
+
+    
+	<td id ="quantity1table" colspan="1"></td>
+<!-- 
+<td> <input readonly class="r" type="text" size="8" id ="quantity1table"></td>
+input style="background-color:#fffff0;" id ="quantity1table" readonly></td> 
+-->
+
+    <td id="total1table" colspan="1"> </td>
+  </tr>
+
+
+  <tr>
+    <td>2</td>
+    <td>12.75</td>
+    <td id ="quantity2table" colspan="1"> </td>
+    <td id="total2table" colspan="1"> </td>
+  </tr>
+
+
+  <tr>
+    <td>3</td>
+    <td>9.95</td>
+   <td id ="quantity3table" colspan="1"></td>
+   <td id="total3table"  colspan="1"> </td>
+  </tr>
+
+  <tr>
+    <td>4</td>
+    <td>35.89</td>
+    <td id ="quantity4table" colspan="1"></td>
+    <td id="total4table"  colspan="1"></td>
+  </tr>
+
+
+
+<tr>
+	<td>Total Amount Sold</td>
+	<td></td>
+	<td></td>
+	<td id="totalAmounttable"  colspan="1" > </td>
+
+</tr>
+
+
+<tr>
+	<td>Total Weekly Earnings</td>
+	<td></td>
+	<td></td>
+	<td id="totalWeeklytable"  colspan="1"> </td>
+</tr>
+
+</table><br><br>
+
+
+<br><br><p style="text-align: center;"> <a href="Hw3PartOne.html"> <i>Part One </i> </a> will display a form for student grades in HTML and check for valid input to calculate the student's final average and final letter grade in Javascript.</p><br><br><br>
+
+<p><a href="hw1.html">Back to Main Page </a></p>
+
+</section>
+</body>
+</html> 
+
+
+
+
+
+<!-- 
+A large company pays its salespeople on a commission basis. The salespeople receive $250 per week, plus 9% of their gross sales for the week.
+
+For example, a salesperson who sells $5000 worth of merchandise in a week, will receives $250 PLUS 9% of $5000, which will be a total of $700. You have been supplied with a list of the items that can be sold by each salesperson. The value of these items are as follows:
+
+Sale Price per item #
+Item	Value
+1	20.99
+2	12.75
+3	9.95
+4	35.89
+
+
+Create a web page that might look similar to the layout shown in the image below.
+
+
+The page will contain an input box where the user will type the name of the sales person.
+
+There will be other input boxes so the user will input the quantity of items sold, for each item.
+
+
+You will use that input to calculate how much the salesperson sold and how much he/she will earn, and then output the results. 
+TIP: Be sure to round the outputted results to 2 decimal places (money is not represented with more than 2 decimals, right?). 
+
+Use input boxes to input the number sold for each of the items 1-4. 
+You should also check for valid numeric input (make sure the number of items sold is never negative, < 0, as nobody sells negative number of items, right?)
+
+
+The results of total sold in dollars and the total money that will be received by the sale person should be right-justify (aligned to the right)
+
+
+Here is an image showing a possible display that is using tables, and form elements (labels, input boxes, buttons, etc.) and some tips:
+
+The boxes for seller's name, and Item 1, Item 2, Item 3, Item 4 will be the boxes that the user will type data
+
+
+All the boxes below Qty Sold and Total should be readonly as you will present the values via your code - for example, the Qty Sold box beside the Item 1 should present the number typed by the user for the quantity the seller sold of Item 1, then, below the Total, the box that is related to Item 1 will show the gross amount of that sale which, of course will be the multiplication of the quantity sold of item 1 by the price of Item 1 (20.99), etc.
+
+In the box beside total earnings, you need to make sure that you first add all the values for each of the Total boxes (for item 1, item 2, item 3, item 4), then you calculate the 9% of that value and, finally, you add 250 to that result to give the total earnings of the seller!
+
+It is ok to use input type="text" for the seller's name but for the item 1, 2, 3, and 4, it will be better if you use input type="number" or if you use input type="text" you will need to test if the user typed a REAL number before doing ANY type of Math operation with that value!
+
+-->
