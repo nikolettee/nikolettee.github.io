@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS loop statements">
+<title>CIS 114 Assignment 4 Loop Statements</title>
+
+<style>
+h1 {text-align: center;
+margin-top: -75px;}
+h2 {text-align: center;}
+h3 {text-align: center;}
+h4 {text-align: center;}
+ p {text-align: center;}
+
+p.border {
+  border: 2px solid black;
+  outline: #008B8B solid 10px;
+  margin: auto;  
+  padding: 20px;
+  text-align: center;
+}
+
+p.border2 {
+  border: 2px solid black;
+  outline: #8FBC8F solid 10px;
+  margin: auto;  
+  padding: 20px;
+  text-align: center;
+}
+
+body {
+  background-color: #E0FFFF; 
+}
+
+.main {	width:600px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px}
+
+.container {
+  position: relative;
+  width: 50%;
+   display: block;
+  margin: auto;
+   text-align:center;
+  width: 400px;
+Padding:10px;
+
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+</style>
+</head>
+
+
+<body>
+<!--icon-->
+<p style= "font-size: 30px; font-family:'Copperplate'; line-height: .8;text-align: left; margin-left: 15px; margin-top: 0px;"> <strong> Javascript and <br> Ajax works </strong> <br></p>
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 70px; height: 80px; margin-top: -80px; margin-left: 210px;" id="icon">
+
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 4 Part One-Loop Statements </strong> </h1> <br>
+
+
+<section  class="main">
+<h3>Overview: Use the for statement to calculate the product and sum of every nth integer from an inclusive range and then display the result. </h3><br>
+
+<p>Slide over the picture to see the technique diagrams:</p>
+<div class="container">
+  <img src="https://study.com/cimages/multimages/16/a4bea689-4e19-4e9d-bf71-433c13a2aa68_for_0.png" alt="for-loop" class="image">
+  <div class="overlay">
+    <img src="https://www.freecodecamp.org/news/content/images/2020/08/while-loop.jpg" alt="while-loop" class="image">
+  </div>
+</div> <br>
+ 
+
+<h3>Multiplication and Addition with "For Loop": </h3>
+<p> For-loop for every fourth integer from 5 to 25 inclusive: </p>
+<p class="border" id="forSum"> </p> 
+<p class="border"  id="forProduct"> </p> <br><br>
+
+
+<h3>Multiplication and Addition with "While Loop": </h3>
+<p> While-loop for every third integer from 3 to 18 inclusive: </p>
+<p class="border2"  id="whileSum"> </p> 
+<p class="border2"  id="whileProduct"> </p> <br><br><br><br>
+
+
+<script>  
+// for loop sum and product numbers
+var num, product;
+sum=0;
+product=1;
+
+  for (var number = 5; number <= 25; number += 4 ) { 
+        sum += number;
+	product *= number;
+  }
+
+document.getElementById("forSum").innerHTML = "The result of 5 + 9 + 13 + 17 + 21 + 25 is ....  " + sum + ".";
+
+
+inFormat = new Intl.NumberFormat('en-US');
+document.getElementById("forProduct").innerHTML = "The result of 5 * 9 * 13 * 17 * 21 * 25 is ....  " + inFormat.format(product) + "."; 
+
+
+//while product and sum of every third integer from 3 to 18 inclusive
+          var product, sum, num;
+	  product = 1;
+          num = 3;
+          sum = 0;	
+		
+         while (num <= 18) {
+	      product *= num;
+              sum += num;
+	      num += 3;	}
+
+         product = product.toLocaleString();
+         sum = sum.toLocaleString();
+         
+	document.getElementById("whileProduct").innerHTML = "The result of 3 * 6 * 9 * 12 * 15 * 18 is .... " + product + "."; 
+        document.getElementById("whileSum").innerHTML = "The result of 3 + 6 + 9 + 12 + 15 + 18 is .... " + sum + "." ;
+</script>
+
+<p> <a href="HW4PartTwo.html"> <i> Part Two </i> </a> will be a demonstration on how compound interest works. Once clients enter the webpage, they will see a variety of headings and tables. </p> <br><br><br>
+
+</section>
+
+
+<p style=text-align:center > <a href="hw1.html">Back to Main Page</a></p><br><br>
+</body>
+</html> 
+
+<!--
+Part 1: 
+Create a webpage for Part 1 and it will contain a script, using the for statement, that calculates the product and sum of every fourth integer from 5 to 25 inclusive and then displays the results, along with some accompanying text.
+For example, when presenting the results, you could show two lines such as:
+The result of 5 * 9 * 13 * 17 * 21 * 25 is ....
+The result of 5 + 9 + 13 + 17 + 21 + 25 is .... 
+
+On that same web page for Part 1, you will have another script, now using the while or do while statement, that calculates the product and sum of every third integer from 3 to 18 inclusive and then displays the results, along with some accompanying text.
+For example, when presenting the results, you could show two lines such as:
+The result of 3 * 6 * 9 * 12 * 15 * 18 is ....
+The result of 3 + 6 + 9 + 12 + 15 + 18 is ....
+-->
