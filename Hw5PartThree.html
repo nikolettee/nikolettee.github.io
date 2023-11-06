@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS Two-Dimensional Arrays">
+<title>CIS 114 Assignment 5 Arrays</title>
+
+<style>
+h1 {text-align: center;
+margin-top: -75px;}
+h2 {text-align: center;}
+h3 {text-align: center;}
+h4 {text-align: center;}
+ p {text-align: center;}
+
+
+.myDiv {
+border: 5px outset #48D1CC;
+background-color: white; 
+text-align: left;
+padding: 8px 12px;
+}
+
+body {
+  background-color: #87CEFA; 
+margin:0;
+}
+
+.main {	width:600px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px}
+
+/*Start to header*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #696969;
+  font-family:Copperplate;
+  Font-size:20px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #D3D3D3;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.compSci{
+float:left}
+
+.compPic{
+float:left}
+
+.myFormOutline {
+  border-left-style: solid;
+  background-color: #FFFAFA;
+  padding: 15px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="topnav">
+<div class="compSci">
+<p style= "color:#696969 ;font-size: 22px; font-family:'Copperplate'; line-height:.8; text-align: left; margin-left: 15px; margin-top: 0px;">
+<strong> Javascript and <br> Ajax works </strong></p> <br>
+</div>
+
+<div class="compPic">
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 50px; height: 60px;float:left; margin-left: -40px" id="icon">
+</div>
+</div>
+
+<ul>
+  <li><a href="hw1.html">Home Page</a></li>
+  <li><a href="Hw5.html">Work 5 Main Page</a></li>
+</ul><br><br><br><br><br><br>
+
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 5 Part Three- 2D Arrays </strong> </h1>
+
+<section class="main">
+<h3>Overview: A form to find information about specific states. </h3><br>
+
+<form class="myFormOutline" id="myForm" name="myForm">
+<p style="font-size: 30px ; text-align:center;"><strong>State Information</strong></p>
+
+<p> The available states to learn about are: <br> Alabama <br> Alaska<br>Arizona<br> Arkansas <br> California <br> Colorado <br></p>
+
+<label style="text-align: center;" for="stateName"> Two-letter abbreviation <br> or the full state name: </label>
+<input type="text" id="stateName"  name="stateName" autofocus placeholder="Enter a state" required> <br><br>
+<span id="nameErrMsg" class="error"></span> <br>
+
+
+<!--a button to each submit and clear the form-->
+<input style="background-color:#48D1CC; font-size: 10px; padding:15px; border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px; " type="button" onclick="checkStates()" value="Get State Info"> 
+
+<input style="background-color:#48D1CC; font-size: 10px; padding:15px; padding:15px;border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px;" type="button" onclick="re()" value="CLEAR"> <br><br><br>
+<!--alternative for reset option : <input type="reset" value="Reset" onclick="location.reload();" -->
+
+<!--a p for the output/result area-->
+<p class="myDiv" id="resultDiv">Result:</p>
+</form>
+
+<script>  
+var errMsgHolder = document.getElementById('resultDiv');
+const statesArray = [
+["al",	 "alabama",     "montgomery ",	        4903185] ,
+["ak",	 "alaska",      "juneau ",		731545],
+["az", 	"arizona",     "phoenix ",		7278717 ],
+["ar", 	"arkansas",    "little rock ",		3017825 ],
+["ca",	 "california",  "sacramento ",		39512223 ],
+["co",	 "colorado",    "denver ",		5758736]
+];
+
+//validate the input for a correct state abbreviation or state name. If invalid, error message. 
+//Does not matter if the user typed the state or abbreviation using capital letters or lowercase.
+
+function checkStates() {
+
+ var searchKey = document.forms["myForm"].elements["stateName"].value;  //get searchkey from form input box
+    searchKey = searchKey.toLowerCase();     //change search key to upper case
+    var found = false;
+    for (var row = 0; row < statesArray.length; row++) //loop for 6 rows
+     {
+     if ((statesArray[row][0] == searchKey) || (statesArray[row][1] == searchKey)) //checks if search key = 1st or 2nd element of each row in the row of four items
+  
+     { 
+                //if search key = 1st or 2nd element of a particular row.
+	//convert the population by removing the commas and then applying them in the inFormat variable in the message to the user.
+	
+     inFormat = new Intl.NumberFormat('en-US');
+      document.getElementById("resultDiv").innerHTML = "Thanks for your inquiry, here is the information you requested: <br><br><u>State abbr:</u> " + statesArray[row][0] 
+							+ "<br><u>State Name:</u> " + statesArray[row][1] 
+							+ "<br><u>Capital:</u> " + statesArray[row][2]
+							+ "<br><u>Population:</u>" + inFormat.format(statesArray[row][3]) + " <br>";  
+       row = statesArray.length;   //ends loop if match found
+       found = true;
+     }
+    }
+
+  if ( found == false ) {
+   document.getElementById("resultDiv").innerHTML = "State name or abbreviation is unavailable, try again! <br><br>" +
+							"The database information is from the available states: <br>"+
+							"Alabama<br>Alaska<br>Arizona<br>Arkansas<br>California<br>Colorado"; 
+       }
+}
+
+// clears the form if user wants to restart the inputs.
+function re() {
+  document.getElementById("resultDiv").innerHTML = "";
+  document.getElementById("myForm").reset();
+}
+
+</script>
+</section> 
+</body>
+</html> 
+
+<!--
+The web page for part 3 and the script will be based on the table you see below that shows data about several of our states from the July/2019 census!
+
+You will create a web page for part 3 with:
+a heading
+a hyperlink so the user can go back to the main page of Homework 5
+a form with an input text box - the user will use that input box to type the full name of the state or the two-letter abbreviation of the state
+a button to submit the data
+a button to clear the form
+a textarea inside the form or a different element (div or paragraph) where you will write the output/result
+
+
+You will write a script that:
+The user will type the FULL NAME or ABBREVIATION of the state he/she desires to get information. After the user click the button to get "State Info", you will verify if the state typed by the user exists in your database
+INFORMATION: It should not matter if the user typed the state or abbreviation using capital letters or lowercase.
+
+TIP: Transform the input of the user and the data you are comparing either to uppercase or to lowercase so you can compare "banana with banana"! Using the toLowerCase() or toUpperCase() methods.
+
+If the state does not exist, write a message in the output area saying something as "Sorry, we do not have information about this state! We only have information about....." - remember to be clear in your error message to guide the user!
+
+
+If the state exists, you should present in the output/result area the 
+information from the state required - think about presenting the information in a nice readable way!
+
+
+More Tips:
+Solving this problem involves a two-dimensional array.
+
+Make sure you validate the input for a correct state abbreviation or state name. If the input is invalid then display an error message. 
+
+If the user enter a state that is not part of the list, show a message to the user but if the user retypes the state and click the Submit button and the state is valid, then the "error" message should not be shown and, instead, you should show the information that is coming from the table below
+
+For example, suppose the user typed "caliFORNIA" (a mix or lower and uppercase), your script will consider this state valid, would find the state in your list and would present an output message looking something as:
+
+Thanks for your inquiry, here is the information you requested:
+State abbr = CA
+State Name = California
+Capital = Sacramento
+Population = 39,512,223
+
+Here is the table with the information for this part 3!
+Census data
+State Abbr	State Name	Capital	Population
+AL	Alabama	   Montgomery	        4,903,185
+AK	Alaska	   Juneau		731,545
+AZ	Arizona	   Phoenix		7,278,717
+AR	Arkansas   Little Rock		3,017,825
+CA	California  Sacramento		39,512,223
+CO	Colorado  Denver		5,758,736
+-->
