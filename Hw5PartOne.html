@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS Arrays">
+<title>CIS 114 Assignment 5 Arrays</title>
+
+<style>
+h1 ,h2,h3,h4,h5,h6 {
+text-align: center;}
+
+p {text-align: left;}
+
+body {
+  background-color: white; /* For browsers that do not support gradients */
+  background-image: linear-gradient(pink, orange);
+}
+
+.main {	width:700px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px
+}
+
+.myFormOutline {
+  border-left-style: solid;
+  background-color: #FFFAFA;
+  padding: 15px;
+}
+
+.error {
+color: #E00000;
+ }
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #696969;
+  position: fixed;  
+  top: 0; /* Position the navbar at the top of the page */
+  left:0;
+  width: 100%; /* Full width */
+
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #696969;
+  font-family:Copperplate;
+  Font-size:22px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.compWorks{
+float:left}
+
+.compPic{
+float:left}
+</style>
+</head>
+
+<body>
+<div class="topnav">
+<div class="compWorks">
+<p style= "color: #f2f2f2; font-size: 22px; font-family:'Copperplate'; line-height:.8; text-align: left; margin-left: 15px; margin-top: 0px;">
+<strong> Javascript and <br> Ajax works </strong> <br></p>
+</div>
+
+<div class="compPic">
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 50px; height: 60px;float:left; margin-left: -40px;" id="icon">
+</div>
+
+<ul>
+  <li><a href="hw1.html">Home</a></li>
+  <li><a href="Hw5.html">Work 5 Main Page</a></li>
+  <li><a href="Hw5PartTwo.html">Part Two</a></li>
+  <li><a href="Hw5PartThree.html">Part Three</a></li>
+</ul>
+</div><br><br>
+
+
+<section  class="main">
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 5 - Form Options </strong> </h1> 
+
+<h3>Overview: A form that asks for the user's name, age, browser used, and movie preference through a radio button, checkbox and a list, while checking for user input mismatch.</h3><br>
+
+
+<form class="myFormOutline" id="myForm" name="myForm">
+<p style="font-size: 30px ; text-align:center;"><strong>User Choices</strong></p><br>
+<label for="name"> Name: </label>
+<input type="text" id="name"  name="name" autofocus placeholder="Enter a name" required> <br><br>
+<span id="nameErrMsg" class="error"></span> <br>
+
+<p>Please select your age:</p>
+<!--a group of radio buttons so the user will select his age group (less than 21; between 21 and 50; older than 50) 
+TIP: when building radio buttons and checkboxes in HTML, make sure that the name attribute has the same value to all radio buttons in the group 
+and the same value to all checkboxes in the group but, of course, the id attribute should have a different value for each element-->
+
+<input type="radio" id="less" name="age" value="less than 21">
+  <label for="less">less than 21</label><br>
+
+<input type="radio" id="between" name="age" value="between 21 and 50">
+  <label for="between">between 21 and 50</label><br>
+
+<input type="radio" id="older" name="age" value="older than 50">
+  <label for="older">older than 50</label><br><br>
+
+
+<!--a group of checkboxes so the user will select the browsers he/she has used (Firefox, Edge, Chrome, Safari) -->
+<p>Please select your browser used:</p>
+<input type="checkbox" id="firefox" name="browser" value="Firefox">
+  <label for="firefox"> Firefox</label><br>
+  
+<input type="checkbox" id="edge" name="browser" value="Edge">
+  <label for="edge"> Edge</label><br>
+
+<input type="checkbox" id="chrome" name="browser" value="Chrome">
+  <label for="chrome"> Chrome</label><br>
+  
+<input type="checkbox" id="safari" name="browser" value="Safari">
+  <label for="safari"> Safari</label><br><br>
+  
+
+<!-- a select element or datalist (to produce a drop-down list of choices) so the user will select which type of movie he/she prefers
+    (Action, Comedy, Drama, Drama, Science Fiction) 
+
+<input list="movieOptions" id="movieChoice" name="movieChoice" />
+<label for="movieChoice"></label> -->
+
+<label id="movieChoice">Select a preferred movie type:</label>
+<select name="movieChoice">
+<option value=" ">-Choose one-</option>
+<option value="Action">Action</option>
+<option value="Comedy"> Comedy </option>
+<option value="Drama"> Drama </option>
+<option value="Documentary"> Documentary </option>
+<option value="Science Fiction">Science Fiction</option>
+</select><br><br><br>
+
+<!--a button to each submit and clear the form-->
+<input style="background-image: linear-gradient(orange, pink); font-size: 10px; padding:15px;border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px; " type="button" onclick="checkValues()" value="SUBMIT"> 
+
+<input style="background-color:#FFC0CB; font-size: 10px; padding:15px;padding:15px;border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px;" type="button" onclick="re()" value="CLEAR"> <br><br>
+
+
+<!--paragraph element that will serve as the output/result area-->
+<p class="myDiv" id="resultDiv"></p><br>
+
+</form>
+</section>
+
+
+<script>  
+var errMsgHolder = document.getElementById('resultDiv');
+
+function checkValues() {
+
+for (i=0; i<4; ++i) {
+
+  if ( checkName() != false &&
+    checkRadioButtons() != false &&
+    checkCheckMarks() != false &&
+    checkList() != false) {
+  errMsgHolder.innerHTML= "Thanks, your data was submitted!";}
+
+else if ( checkName() == false) {
+	checkName();}
+
+else if ( checkRadioButtons() == false) {
+	 checkRadioButtons();}
+
+else if ( checkCheckMarks() == false) {
+	 checkCheckMarks();}
+
+else if ( checkList() == false) {
+	 checkList();}
+else {
+errMsgHolder.innerHTML='Try again. Please review the inputs!';
+}
+
+}//end for
+}//end func
+
+
+function checkName() {
+    var name = document.getElementById("name").value;
+    var isNameValid = false;
+    if (name.length < 0 || name == "") {
+	isNameValid=false;
+        errMsgHolder.innerHTML ='Please enter a first name.';
+        return false;
+    }else if(!(/^[a-zA-Z]+$/.test(name))){
+        errMsgHolder.innerHTML='Remove Whitespaces and/or numbers';
+    } else {
+	isNameValid=true;
+    return true;
+}
+    
+}
+
+function checkRadioButtons() {
+ var rateChecked = false;
+ var rateValue = "";
+
+ for (var i=0; i<3; ++i) {
+    if (document.myForm.age[i].checked) {
+         rateChecked = true;
+         rateValue = document.myForm.age[i].value;
+         break;
+       }
+ }
+
+  if (rateChecked == false) {
+     document.getElementById("resultDiv").innerHTML = "Please check an age range."; 
+	return false;
+    }
+   else {
+    document.getElementById("resultDiv").innerHTML = "Age checked is valid - you checked " + rateValue;
+	return true;           
+}
+}
+
+
+
+function checkCheckMarks() {
+     var isValid = false;
+        //alert("Check if any checkbox is not checked..."); 
+        var allRows = document.getElementsByTagName("input");
+        for (var i=0; i < allRows.length; i++) {
+            if (allRows[i].type == 'checkbox' && allRows[i].name == 'browser') {
+                if (allRows[i].checked == true) {
+            document.getElementById("resultDiv").innerHTML = "One or more check box is selected";
+                       
+        return true;
+         }
+document.getElementById("resultDiv").innerHTML = "Please select a check box.";            
+}
+        }
+        return isValid;
+    }   
+
+
+function checkList() {
+ var selstat = document.forms["myForm"].elements["movieChoice"].selectedIndex;
+    var selectedValue = "";
+
+    if (selstat < 1)  // < 1 for the index means that no selection was made
+    {
+      document.getElementById("resultDiv").innerHTML = "Please select a movie.";
+	return false;
+    }
+    else
+    {
+      selectedValue = document.forms["myForm"].elements["movieChoice"].value;  
+      document.getElementById("resultDiv").innerHTML = "Movie option selected is valid - " + selectedValue; 
+	return true;    
+    }
+  
+} 
+
+function re() {
+  document.getElementById("resultDiv").innerHTML = "";
+  document.getElementById("myForm").reset();
+}
+</script>
+
+<br><br>
+</body>
+</html> 
+
+
+<!--
+Create a web page for part 1 with:
+a heading
+a hyperlink to go back to the main Homework 5 page
+
+a form that will contain:
+an input text box so the user will enter his/her full name
+a group of radio buttons so the user will select his age group (less than 21; between 21 and 50; older than 50)
+a group of checkboxes so the user will select the browsers he/she has used (Firefox, Edge, Chrome, Safari)
+TIP: when building radio buttons and checkboxes in HTML, make sure that the name attribute has the same value to all radio buttons in the group and the same value to all checkboxes in the group but, of course, the id attribute should have a different value for each element
+a select element or datalist (to produce a drop-down list of choices) so the user will select which type of movie he/she prefers (Action, Comedy, Drama, Documentary, Science Fiction)
+a button to submit the form
+a button to clear the form
+a div or paragraph element that will serve as the output/result area (it can be outside the form)
+
+
+
+For that page, you will code a script that:
+Will validate whether the user has entered data in the input text box, AND has checked one of the radio buttons, AND has checked at least
+ one checkbox, AND has selected an option from the list of options in the select (or datalist) element.
+
+If one of the data, from the user, is missing, you will show an error message in the output area
+
+TIP: Make sure that if you display an error message because of a single field, you do not clear out the whole entire form unless all the
+ fields would have error messages associated to them! It's horrible to have the user fill out all the form again when there was only one 
+field with error, right? Remember about this type of detail that is related to user experience!
+
+If ALL the requested data was input by the user, you will write a message in the output area such as 
+
+"Thanks, your data was submitted!"
+-->
