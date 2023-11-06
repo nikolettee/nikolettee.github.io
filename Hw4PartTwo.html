@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="JS Arrays">
+<title>CIS 114 Assignment 5 Arrays</title>
+
+<style>
+h1 {text-align: center;
+margin-top: -75px;}
+h2 {text-align: center;}
+h3 {text-align: center;}
+h4 {text-align: center;}
+ p {text-align: center;}
+
+.border {
+  border: 2px solid black;
+  outline:    #92b8c9 solid 10px;
+  margin: auto;  
+  Width:500px;
+  padding: 10px;
+  text-align: center;
+  background-image: linear-gradient(to right, #E0FFFF, #b4b4b4);
+}
+
+.border2 {
+  background-image: linear-gradient(to right, hsl(206, 80%, 84%), #b4b4b4);
+  border: 2px solid black;
+  outline: #6295bf solid 10px;
+  width: 500px;
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+}
+
+body {
+  background-color: #D3D3D3; 
+}
+
+.dropbtn {
+  background-color: #66a8a8;
+  color: white;
+  padding: 30px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+   
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #696969;
+  font-family:Copperplate;
+  Font-size:20px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #D3D3D3;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Style the header */
+header {
+  background-color: #444;
+  padding: 40px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #696969;
+  padding: 40px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #A9A9A9;
+  padding: 40px;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.compWorks{
+float:left}
+
+.compPic{
+float:left}
+
+</style>
+
+<script>
+//2 pulldown menus:
+//The first pulldown menu should utilize an onchange event handler.
+function page() {
+var desL = document.getElementById("destList").value;
+window.open(desL);
+}
+
+//The second pulldown menu should utilize a button with an onclick event handler to navigate to a page after an option is selected.
+function goToNewPage(onClickForm) {
+    var myDestination =  onClickForm.destinationList.options[onClickForm.destinationList.selectedIndex].value;
+	window.open(myDestination);
+}
+</script>
+</head>
+
+<body>
+<nav class="topnav">
+<div class="compWorks">
+<p style= "font-size: 22px; font-family:'Copperplate'; line-height:.8; text-align: left; margin-left: 15px; margin-top: 0px;">
+<strong> Javascript and <br> Ajax works </strong></p> <br>
+</div>
+
+<div class="compPic">
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 50px; height: 60px;float:left; margin-left: -40px" id="icon">
+</div>
+<ul>
+  <li><a href="hw1.html">Home</a></li>
+  <li><a href="Hw5.html">Work 5 Main Page</a></li>
+  <li><a href="Hw5PartOne.html">Part One</a></li>
+  <li><a href="Hw5PartThree.html">Part Three</a></li>
+</ul>
+</nav>
+
+<h2 style="font-family:'Lucida Console'"> <strong> Homework 5 Part 2 - Pull-Down Menus </strong> </h2> 
+<h3>Overview: Two pull-down menus with one using an onchange event handler and one using a button onclick event handler with each including three url destinations and opening in another window/tab.</h3>
+<br>
+
+
+<section>
+<!--<h4>FoodNetwork Dish</h4>-->
+  <nav>
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/03/10/0/FNK_BEST-CHICKEN-AND-RICE-H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1583851621211.jpeg" alt="FoodNetwork dish image" style= "width: 490px; height: 420px;" id="dishIcon">
+  </nav>
+
+ <article><br><br><br><br><br>
+   <div class="border">
+   <h3>Pull-down using an onChange event handler:</h3>
+
+<div class="dropdown">
+<select name="destList" id="destList" class="dropbtn" onChange="page()" >
+    <option>-Choose a Food Destination-</option>
+    <option value="https://www.foodnetwork.com">FoodNetwork</option>
+    <option value="https://www.delish.com">Delish</option>
+    <option value="https://www.eatingwell.com">Eating Well</option>
+    <option value="https://www.simplyrecipes.com">Simply Recipes</option>
+</select>
+</div>
+</div>
+
+<br><br><br><br><br>
+
+<div class="border2">
+<form id="onClickForm" name="onClickForm">
+<h3>Pull-down using onClick event handler:</h3>
+<select name="destinationList">
+<option value=" ">-Choose a Food Destination-</option>
+<option value="https://www.foodnetwork.com">FoodNetwork</option>
+<option value="https://www.delish.com">Delish</option>
+<option value="https://www.eatingwell.com">EatingWell</option>
+<option value="https://www.simplyrecipes.com">Simply Recipes</option>
+</select>
+<input type="button" value="Go" onClick="goToNewPage(onClickForm);">
+</form>
+</div>
+</article>
+</section>
+</body>
+</html> 
+
+<!--
+Create a web page for part 2 with:
+a heading
+a hyperlink to go back to the main Homework 5 page
+
+2 pulldown menus:
+The first pulldown menu should utilize an onchange event handler.
+
+The second pulldown menu should utilize a button with an onclick event handler to navigate to a page after an option is selected.
+
+Each pulldown menu should include at least 3 URL destinations. 
+You will code a script for that page that, based on each pulldown menu, will open the selected website, but that selected website should open in ANOTHER TAB/WINDOW
+-->
