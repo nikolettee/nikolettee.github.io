@@ -88,10 +88,11 @@ li.dropdown {
 }
 </style>
 
+
 <script>
 
 function more() {
-document.getElementById("learnMore").innerHTML = "<h2> Web developers are commonly familiar with three languages: HTML, CSS, Javascript</h2>" +
+document.getElementById("Section_further_down").innerHTML = "<h2> Web developers are commonly familiar with three languages: HTML, CSS, Javascript</h2>" +
 
 "<h3>HTML</h3>" +
 "<p>HyperText Markup Language (HTML) is the standard markup language to create web pages. The system displays information viewable or audible in web browsers with tags in text files to achieve font, color, graphic, and hyperlink effects on the web! HTML pairs well with Cascading Style Sheets (CSS). CSS is a declarative language used for specifying the layout in HTML documents. </p>" +
@@ -105,6 +106,8 @@ document.getElementById("learnMore").innerHTML = "<h2> Web developers are common
 }
 </script>
 </head>
+
+
 
 <body>
 
@@ -126,6 +129,7 @@ document.getElementById("learnMore").innerHTML = "<h2> Web developers are common
   </li>
 </ul>
 
+
 <div class="container">
  <img src="https://www.picpedia.org/highway-signs/images/computer-science.jpg" alt="bkgdSci" style="opacity:.4; width:100%;">
 </div>
@@ -133,13 +137,19 @@ document.getElementById("learnMore").innerHTML = "<h2> Web developers are common
 <div class="centered"> 
 <p style="transform: translate(10%, 50%);font-size:60px; font-family:'Copperplate'"> <strong> Javascript <br>Ajax works </strong></p>
 
-<!--a button-->
-<input class="button2 button2:hover" style="font-family:'Copperplate';box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19); transform: translate(60%,800%);background-color:#48D1CC; font-size: 20px; padding:15px; border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px; " type="button" onclick="more()" value="Learn More"> 
 
-<input style="transform: translate(-15%,1000%);" type="image" src="https://www.freeiconspng.com/uploads/arrow-down-icon-png-9.png" alt="scroll" width="48" height="48">
+<!--a button with anchor link-->
+<input class="button2 button2:hover" style="font-family:'Copperplate';box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19); transform: translate(60%,750%);background-color:#48D1CC; font-size: 20px; padding:15px; border-radius: 30px 30px 30px 30px;  width: 150px; height: 50px; " type="button" onclick="more()" value="Learn More">
+<p><a href="#Section_further_down"></a></p>
+
+
+
+<input style="transform: translate(300%,800%);" type="image" src="https://www.freeiconspng.com/uploads/arrow-down-icon-png-9.png" alt="scroll" width="48" height="48">
+
 
 </div>
-<p id="learnMore"></p>
+<p id="Section_further_down"></p>
 
 </body>
+
 </html>
