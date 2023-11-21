@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="summary of what this page is about">
+<title>CIS 114 Assignment 6</title>
+
+ <style>
+
+body {background-color: #ADD8E6;}
+      
+.main {	width:500px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px
+}
+
+div {
+
+	font-size: 18px; 
+	font-weight: bold; 
+        color:red;
+}
+	
+.ridge {
+border-style: ridge;
+color: white;
+}
+      
+ td, th
+      {
+       border:2px solid black;
+      }
+
+h1,h2,h3,h4,h5,h6, p{
+text-align: center;
+}
+
+.styled {
+  border: 0;
+  line-height: 2;
+  padding: 0 15px;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 25px;
+  background-color: #D3D3D3;
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+  background-color: #00BFFF;
+}
+
+.styled:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+</style>
+<script>
+          
+    function checkPhone() {
+       
+            var errMsg = "Invalid phone number format. The format is (###) ###-#### where # is a digit.";
+            var completeNumber = document.forms["myForm"].elements["input"].value;
+
+        const paragraph  = document.forms["myForm"].elements["input"].value;
+const regex = /^(\()(\d{3})(\))(\s)(\d{3})(\-(\d{4}))$/;
+const found = paragraph.match(regex);
+
+
+            if ( !found ) {
+
+                document.getElementById("errorOutput").innerHTML = errMsg;
+           
+ // clear any previous output of zip and extension boxes
+            document.forms["myForm"].elements["area"].value = "";
+            document.forms["myForm"].elements["first"].value = "";
+            document.forms["myForm"].elements["second"].value = "";
+
+
+            } else  {  
+                
+            // clear any possible residual error message
+			document.getElementById("errorOutput").innerHTML = "";
+
+            // output zip main code
+            document.forms["myForm"].elements["area"].value = found[2];
+
+            // output zip extension
+            document.forms["myForm"].elements["first"].value = found[5];
+
+            document.forms["myForm"].elements["second"].value = found[7];
+         
+                 }
+         }
+      
+      </script>
+
+</head>
+
+
+<body onload="document.forms['myForm'].elements['input'].focus()">
+
+<section class="main">
+<header>
+<h1> <strong> Homework 6 - Objects </strong> </h1> 
+</header>
+
+
+      <form name = "myForm">
+         <table class="ridge">
+	<tr><th style="background-color: #00BFFF; font-size:22px;">
+	Regular Expressions and <br>Phone Numbers
+	</th> 
+<th style="background-color: #00BFFF; font-size:22px;"> Output </th> 
+
+</tr>          
+          <tr>
+               <td><label for="input">Enter a Phone Number <br>
+                  in the format (123) 456-7890</label>
+               </td>
+               <td>
+                  <input name="input" id="input" type="text" size="10" autofocus>
+               </td>
+            </tr>
+
+	     <tr>
+               <td colspan="2">
+                  <input class="styled" type="button" value="Enter" onclick="checkPhone()"> <br><br>
+			<div id ="errorOutput"></div> <br>
+               </td>
+            </tr>
+            
+	    <tr>
+               <td><label for="area">Area Code:</label></td>
+               <td>
+                  <input name="area" id="area" type="text" size="3" readonly>
+               </td>
+            </tr>
+
+		<tr>
+               <td><label for="first"> First Half:</label></td>
+               <td>
+                  <input name="first" id="first" type="text" size="3" readonly>
+               </td>
+            </tr>
+
+           <tr>
+               <td><label for="second">Second Half:</label></td>   
+               <td>
+                   <input name="second" id="second" type="text" size="4" readonly>
+               </td>               
+               
+            </tr>
+
+         </table> <br>
+
+         <input type="reset" value="CLEAR" onClick="window.location.reload();">
+      </form>
+
+<p><a href="hw6.html">Back to Home 6 Page</a></p>
+</section>
+</body>
+</html>
+
+
+<!--
+For Part 3: 
+Create a webpage with:
+a heading of your choice
+
+an input box for the user to type the phone number
+
+3 input boxes where you will present the result/output (area code, the first 3 digits of the phone number, the last 4 digits of the phone number)
+
+a button to start the process
+
+a button to clear the form
+
+an element such as div or paragraph to present any error message you need
+
+a hyper link to go back to the main page of Homework 6
+
+
+You will create a script to resolve the following:
+The user needs to type the telephone number, as a string, in this format (999) 999-9999.
+
+
+You should use the String method split or the match group related to regex to extract the area code; the first 3 digits of the phone number; and the last 4 digits of the phone number
+
+You will display, in the 3 input boxes (that are read-only) you provided in the form, those separated numbers - ONLY THE NUMBERS, there should be no parentheses, no hyphen! 
+
+This means that the phone number was typed in the correct requested format and then, in this case, the area you would be using for error message should be CLEARED!!!
+
+If the user does not type the phone number in the exact format requested, you should display in the other element (div or paragraph) an error message that clarifies to the user how he should type the phone number and then, NONE OF THE 3 READ-ONLY INPUT BOXES SHOULD PRESENT A RESULT.
+-->
