@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="assignment JS seven cookies">
+<title>CIS 114 Assignment 7</title>
+
+<style>
+h1 ,h2,h3,h4,h5,h6 {
+text-align: center;}
+
+p {text-align: left;}
+
+body {
+  background-color: #B0C4DE;
+}
+
+.main {	width:700px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px;
+}
+
+.myFormOutline {
+  border-left-style: solid;
+  background-color: #FFFAFA;
+  padding: 20px;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.buttons {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 30px; /*vertical by horizontal spacing*/
+  cursor: pointer;
+}
+
+.button2 {border-radius: 4px;}
+
+.label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 200px;
+    text-align: left;
+}
+
+.input {
+  display: inline-block;
+  float: left;
+}
+</style>
+</head>
+
+<body onload="checkCookie();">
+<section class="main">
+<h2> <strong> Homework 7 - Cookies </strong> </h2> <br>
+
+<h3> <I>Objective: </I>A web page with a script that will save two pairs of cookies for the same page - one of the pairs for the name of the user and another one for the username of the user. </h3>
+
+<form class="myFormOutline" id="myform" name="myForm">
+<p style="font-size: 30px ; text-align:center;"><strong>Name and UserName</strong></p><br>
+
+<label class="label" for="user">Please enter your name: </label> 
+<input class="input" type="text" name="user" id="user" placeholder="name-">
+<br><br>
+
+<label class="label" for="userName">Please enter your username: </label> 
+<input class="input" type="text" name="userName" id="userName" placeholder="username-">
+<br><br><br><br>
+
+<input type="button" class="button button1" value="Create Cookie" onclick="createCookie();">   <input class="buttons button2" type="reset" value="Clear Form">
+</form>
+
+<p style="text-align:center;font-size:20px;" id="result"></p>
+<br><br><br>
+<p style="text-align:center;"><a href="hw7.html">Back to Main HW 7 Page</a></p>
+
+<script>
+function createCookie() {
+  var cName = "username";
+  var cValue = document.getElementById("userName").value;
+  document.cookie = cName + "=" + cValue + ";";
+
+
+  var uName = "user";
+  var uValue = document.getElementById("user").value;
+  document.cookie = uName + "=" + uValue + ";";
+}
+
+
+function getCookie(cName) {
+  var name = cName + "=";
+  
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {  
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length , c.length);
+    }
+  }
+  return "";
+}
+
+function getCookieTwo(uName) {
+  var named = uName + "=";
+  
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(named) == 0) {
+      return c.substring(named.length , c.length);
+    }
+  }
+  return " ";
+}
+
+
+function checkCookie() {
+
+  var user = getCookie("user");
+  var userName = getCookieTwo("username");
+
+  if ((user != "") && (userName != "")) {
+    document.getElementById("result").style.color = "#ff0000";
+    document.getElementById("result").innerHTML = "Welcome back user: <strong>" + user + "</strong> and username: <strong>" + userName + "</strong>!";
+    document.getElementById("myform").style.display = "none";
+  } 
+  else {
+    document.getElementById("myform").style.display = "block";
+    }
+  
+}//end function
+
+</script>
+</section>
+</body>
+</html> 
