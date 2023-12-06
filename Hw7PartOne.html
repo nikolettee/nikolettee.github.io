@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Objects">
+<title>CIS 114 Assignment 7</title>
+
+<style>
+
+.pink {
+    background-color: #FF1493;
+}
+.blue {
+    background-color: #00BFFF;
+}
+.orange {
+    background-color: #FFA07A;
+}
+.originalColor{
+    background-color: #B0C4DE ;
+}
+
+
+.italic {font-style:italic;}
+.normalFontStyle {font-style:normal;}
+.bold {font-weight:bold;}
+.underline {text-decoration: underline;}
+
+
+.small {
+    font-size: 1.5em;
+}
+.medium {
+    font-size: 2em;
+}
+.large {
+    font-size: 4rem;
+}
+
+.userOptions{
+     background-color: #B0C4DE;  
+     font-family: Georgia;
+   
+}
+
+.myFormOutline {
+  border-left-style: solid;
+  background-color: #FFFAFA;
+  padding: 15px;
+}
+
+body{
+background-color: #B0C4DE;
+}
+
+.main {
+        width:700px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px;
+}
+</style>
+
+<script>
+function checkValues() {
+
+//for (i=0; i<4; ++i) {
+
+  if ( switchStyle() != false &&
+    switchFontStyle() != false &&
+    selectFontSize() != false) {
+
+}
+
+else if ( switchStyle() == false) {
+	switchStyle();
+}
+
+else if ( switchFontStyle() == false) {
+	 switchFontStyle();
+}
+
+else if ( selectFontSize() == false) {
+	 selectFontSize();
+}
+
+}//end func
+
+
+/* Change background color using radio buttons:
+clicking a radio button connects with 
+script function switchStyle(style) and the class name colors.
+if the first radio button was checked then style will = 0, as the first element
+in the radio button array */
+
+function switchStyle(style) 
+{
+    var body = document.getElementById("userOptions");
+
+var rateChecked = false;
+ var rateValue = "";
+
+    if(style == 0) {
+        body.className = "pink";
+        rateChecked =true;
+ }
+
+    else if(style == 1) {
+        body.className = "blue";
+	 rateChecked =true;
+
+    }
+    else if(style == 2) {
+        body.className = "orange";
+	 rateChecked=true;
+    }
+   else if(style == 3) {
+        body.className = "originalColor";
+	 rateChecked = true;
+
+    }
+else {
+	 rateChecked = false;
+} 
+
+} 
+
+
+function switchFontStyle(style) 
+{
+    var body = document.getElementById("userOptions");
+    var isValid = false;
+
+        var allRows = document.getElementsByTagName("input");
+        for (var i=0; i < allRows.length; i++) {
+            if (allRows[i].type == 'checkbox' && allRows[i].name == 'fontEmbellish') {
+               // if (allRows[i].checked == true) {
+               
+
+		    if (style == 0) {
+
+       			 body.className = "italic";      			   
+			document.getElementById("normal").checked = false;
+				return true;
+    			}
+			else if(style == 1) {
+       			 body.className = "bold";
+			document.getElementById("normal").checked = false;
+				return true;
+
+  		  	}
+			else if(style == 2) {
+       			 body.className = "underline";
+			document.getElementById("normal").checked = false;
+				return true;
+
+   			 }
+
+			else if(style == 0 && style == 1) {
+			  body.className = "italic";   
+       			  body.className = "bold";
+			document.getElementById("normal").checked = false;
+				return true;
+			}
+			else if(style == 0 && style == 2) {
+			 body.className = "italic";   
+       			 body.className = "underline";
+			document.getElementById("normal").checked = false;
+				return true;
+
+			}
+			else if(style == 1 && style == 2) {
+       			 body.className = "underline";
+ 			 body.className = "bold";
+			document.getElementById("normal").checked = false;
+				return true;
+			}
+
+
+			else if(style == 0 && style == 1 && style ==2) {
+       			 body.className = "italic";   
+       			 body.className = "underline";
+ 			 body.className = "bold";
+			document.getElementById("normal").checked = false;
+				return true;
+			}
+
+   			 else if(style == 3) {
+       			 body.className = "normalFontStyle";   
+    			   document.getElementById("italic").checked = false;
+    			   document.getElementById("bold").checked = false;
+    			   document.getElementById("underline").checked = false;
+				return true;
+  		        }
+			
+			else {
+   			return false; 
+			}
+
+	
+	
+		  
+		} //end if second   
+	}//end for
+}
+
+
+
+
+
+
+/* Change font size using a select drop-down menu:
+ selecting an option connect with 
+script function selectFontSize() and the class name styles of small, medium, and large,
+which will change the font size of ALL of the text in the table
+*/
+
+function selectFontSize()
+{      
+    var origFormObject = document.getElementById("userOptions");    
+    var selectedFontSize = document.getElementById('fontChoice').value;
+    var listed = false;
+        
+    if (selectedFontSize == "small")
+    {
+        origFormObject.className = "small myFormOutline";
+	listed= true; 
+    }
+    else if (selectedFontSize == "medium")
+    {
+        origFormObject.className = "medium myFormOutline";
+	listed= true; 
+
+    }
+    else if (selectedFontSize == "large")
+    {
+        origFormObject.className = "large myFormOutline";
+	listed= true; 
+
+    }           
+    else{	
+	listed= false; 
+     
+}
+}
+
+
+function switchToOrig()
+{
+    var origbody = document.getElementById("userOptions");
+    origbody.className = "userOptions";
+
+    document.getElementById("myForm").reset();
+}
+
+
+</script>
+
+
+</head>
+
+<body onload="checkValues()">
+
+<section class="main">
+<header>
+<h1 style="text-align: center;"> <strong> Homework 7 - Objects Continued </strong> </h1> 
+</header>
+
+<h3 style="text-align: center;"> Objective: A form for the user to choose how to design a part of the webpage. When the user selects a style, that style will be applied immediately. </h3><br>
+
+<div id="userOptions" style="text-align: center;">
+<p>  AAAA AAAA this is the first paragraph AAAA AAAA </p>
+<p> BBBB this is the second paragraph BBBB BBBB BBBB </p>
+<p> CCCC CCCC CCCC this is the third paragraph CCCC</p>
+</div> <br><br>
+
+<form class="myFormOutline" id="myForm">
+<p style="font-size: 30px ; text-align:center;"><strong>User Backgrounds</strong></p>
+
+<!--radio buttons=user select the color of the background, at least 2 different colors.
+clicking the first radio button will execute the function switchStyle
+and pass the first element in the radio button array, i.e., 0 to the function -->
+
+<p>Please select one desired color for the current background to apply on the paragraphs:</p>
+
+<input type="radio" id="colorOne" name="colors" onclick="switchStyle(0)" >
+  <label for="colorOne">Pink</label><br>
+
+<input type="radio" id="colorTwo" name="colors" onclick="switchStyle(1)">
+  <label for="colorTwo">Blue</label><br>
+
+<input type="radio" id="colorThree" name="colors" onclick="switchStyle(2)">
+  <label for="colorThree">Orange</label><br>
+
+<input type="radio" id="colorOg" name="colors" onclick="switchStyle(3)" value="Original Color">
+  <label for="colorOg">Orignial Color</label><br><br>
+
+
+
+<!--checkboxes so user choose "underline", and/or "bold", and/or "italic" - remember that HTML checkboxes allow the user to choose one or more options -->
+<p>Please select at least one desired font style to apply on the paragraphs:</p>
+
+<input type="checkbox" id="italic" name="fontEmbellish" onclick="switchFontStyle(0)" value="Italic">
+  <label for="italic"> Italic </label><br>
+
+<input type="checkbox" id="bold" name="fontEmbellish" onclick="switchFontStyle(1)">
+  <label for="bold"> Bold </label><br>  
+
+<input type="checkbox" id="underline" name="fontEmbellish" onclick="switchFontStyle(2)" >
+  <label for="underline"> Underline </label><br>
+
+<input type="checkbox" id="normal" name="fontEmbellish" onclick="switchFontStyle(3)" >
+  <label for="normal"> Original Style </label><br><br><br>
+
+
+
+<!--select element to create a drop-down list so user to select the font-size to be applied (at least 3 different font-size should be listed and preferably in em, or rem, or % units) -->
+
+<label>Please select one desired font size to apply on the paragraphs:</label>
+<select name="fontChoice"  id="fontChoice" onchange="selectFontSize()">
+<option value=" ">-Choose one size -</option>
+<option value="small"> Small </option>
+<option value="medium"> Medium </option>
+<option value="large"> Large </option>
+</select><br><br><br><br>
+
+
+<input type="button" value="Revert to original form"  onclick="switchToOrig()"> <br><br>
+</form><br><br><br>
+
+<p style="text-align: center;"><a href="hw7.html">Back to Main HW 7 Page </a></p>
+
+</section>
+</body>
+</html> 
+
+
+<!--
+Create a webpage for part 1 with
+a heading of your choice
+
+a div, or a main tag with at least 3 paragraphs and that will be the area to be used to apply the styles chosen by the user
+
+a form with:
+radio buttons for the user to select the color of the background to be applied (you should have at least 2 different colors for the user to choose from)
+
+checkboxes that will allow the user to choose "underline", and/or "bold", and/or "italic" - remember that HTML checkboxes allow the user to choose one or more options
+
+a select element to create a drop-down list where you will allow the user to select the font-size to be applied (at least 3 different font-size should be listed and preferably in em, or rem, or % units)
+
+there should be no button to clear the choices, neither a button to submit the information - when the user selects a style, that style will be applied right away
+
+a hyperlink so the user can go back to the page of Homework 7
+
+You will write a script that will do the following:
+
+As the user starts selecting the styles available (from the radio buttons, or from the checkboxes, or from the select (drop-down list)), you will apply the selected style to the area mentioned above (div or using the <main> tag)
+
+
+IMPORTANT NOTES:
+Remember that if the user checks a certain checkbox and later the user unchecks it, you will need to remove the style that was unchecked from the div (or main) area.
+
+The styles should be added as the user keeps selecting/checking the styles from the form you provided - this means that if the user checks the radio button with a color for the background and checks the bold of the checkbox group, both of these styles should be applied - it's not only applying the last style chosen!
+
+You could never use a group of checkboxes to allow the user to choose different font-sizes because when a user sees a checkboxes, by default, you can check one or more boxes, right? This means that it would be impossible to apply two different font sizes at the same time. This type of selection would be more appropriate by using a group of radio buttons!
+-->
