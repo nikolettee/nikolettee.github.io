@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,8 +47,6 @@ background-color:#ADD8E6;
 
 <textarea name="longContent" id="longContent" rows="8" cols="50" autofocus placeholder="Enter long text"></textarea><br><br>   
 
-<input style="transform: translate(740%,-110%);" type="image" src="https://www.pngitem.com/pimgs/m/265-2658578_arrow-pointing-to-left-svg-png-icon-free.png" alt="leftArrow" width="50" height="50">
-
 <label for="letter"> Enter a letter: </label>
 <input type="text" id="letter"  name="letter" maxlength="1" placeholder="Enter a letter"> <br><br>
 
@@ -62,9 +59,6 @@ background-color:#ADD8E6;
 
 <!--paragraph element that will serve as the output/result area-->
 <p id="resultDiv"></p>
-
-<p style="font-size:26px;"> Hello Professor Da Silva. In reference to the discussion from this week, if you refer to the arrow icon and see where it is pointing, at the two diagonal lines, if the lines are clicked and moved horizontally then the textarea overflows past the form presentation and onto other parts of the webpage in only one direction while the other direction appears to have a limit. How is this overflow on one side of this form fixed? </p>
-
 
 <p><a href="hw6.html">Back to Main HW 6 Page (Homework 1)</a></p>
 </section>
@@ -102,7 +96,6 @@ background-color:#ADD8E6;
 		document.getElementById("resultDiv").style.color = "#ff0000";
 
          }
-
 
 
 // error window to show
@@ -158,47 +151,5 @@ function re() {
 }
 
 </script>
-
 </body>
-
 </html> 
-
-
-
-
-<!--
-For Part 2: 
-You will create a web page with:
-a heading that you can choose
-
-a form with:
-a textarea to allow the user to type a long content
-an input box to allow the user to type only one letter 
-
-TIP: in HTML, you can restrict the number of characters the user will type by using the attribute maxlength in the input type="text" element
-an input box or textarea, or an element outside the form (a div or paragraph) to present the output/result
-
-a hyperlink to return to the main page of Homework 6
-
-You will write a script using some Script methods you learned, to solve the following:
-
-The user will type whatever content he/she wants in the textarea for the long content, and the user will also type a single character in the input box you provided. 
-
-When the user clicks the submit button, you will:
-
-Search for the character the user typed inside the content in the textarea and you will count how many times this character is shown in the big content
-
-If the character is found, you will present a message in the output/result area that says how many times the character X shows up in the content where X is the single character typed by the user
-
-If the character is not found, you will present a new window (using the window.open() method you learned), the message: "Search character X not found in the content you typed", where X is the single character typed by the user. You should also make sure that, in this case, you will clear the input box or textarea that would be presenting the result of a positive search
-
-NOTE: The new window should be 300 pixels by 100 pixels (width by height) and should be presented on a place that do not obscure any of the main content on the page the user is working with - you will choose the best place depending on your layout
-
-TIP: when presenting the new window, it will be GREAT, if you present a button that the user can click to CLOSE that new window
-
-IMPORTANT NOTES:
-Remember that it does not matter if the user types a lowercase letter to search - the match should be done and accepted if the text contains the same letter either in lowercase or uppercase. For example, letter "t" would be found twice in this text "This time"!
-
-For a tip on how to use the charAt() to count the number of occurrences of a character, take a look at this page coded by the instructor. 
-
--->
