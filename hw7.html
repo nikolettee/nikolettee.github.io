@@ -1,31 +1,99 @@
-
+<!--
+Create a web page for the Homework 7 with the following:
+a heading "Homework 7 - Object Model and Cookies".
+include a hyperlink to PART 1 
+include a hyperlink to PART 2
+a separated hyperlink that will simply take the user to the main page of the course (Homework 1)
+-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="description" content="summary of what this page is about">
-<title>CIS 114 Assignment 7</title>
+<title>CIS 114 Assignment 6</title>
+<style>
+
+p {text-align: left;
+margin-left: 15px;
+margin-top: 0px;
+line-height: .8;
+}
+
+#sidebar {
+    flex: 0 1 20%;
+    margin: 10px;
+    padding: 45px;
+    width: 200px;
+}
+
+#sidebar ul {
+    list-style-type: none;
+}
+
+#content {
+    width: 850px;
+    Height: 500px;
+    padding: 45px;
+    margin:0px auto;
+    text-align:center; 
+}
+
+body {
+    background-color: #B0C4DE;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-image: none;
+}
+
+div {
+    border-radius: 20px;
+    background-color: #A9A9A9;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    color: #000000;
+}
+
+p, ul, li, label, td {
+    color: #000000;
+}
+
+a {
+    color: #0000FF;
+}
+
+
+</style>
 </head>
-<body>
-
-
-
-<section>
 <header>
-<h1> <strong> Coming Soon HW 7! </strong> </h1> 
+<p style= "font-size: 30px; font-family:'Copperplate'"> <strong> Javascript and <br> Ajax works </strong> <br></p>
+<img src="https://www.freeiconspng.com/uploads/smartphone-and-tablet-png-25.png" alt="icon" style= "width: 70px; height: 80px; margin-top: -80px; margin-left: 195px;" id="icon">
+
+<div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="hw1.html">Home Page</a></li>
+	    <li><a href="hw2.html">Homework 2</a></li>
+            <li><a href="hw3.html">Homework 3</a></li>
+            <li><a href="hw4.html">Homework 4</a></li>
+            <li><a href="hw5.html">Homework 5</a></li>
+            <li><a href="hw6.html">Homework 6</a></li>
+            <li><a href="hw7.html">Homework 7</a></li>
+            <li><a href="hw8.html">Homework 8</a></li>
+        </ul>
+    </div>
 </header>
 
-<!--
-<h2> New section </h2>
-<p> a new paragraph with a hyperlink to the main page</p>
--->
-<a href="hw1.html">Back to Main Page (Homework 1)</a>
-</section>
+<div id="content">
+<h1 style="font-family:'Lucida Console'"> <strong> Homework 7 - Object Model and Cookies  </strong> </h1> <br>
+<h3> The task: </h3>
 
-<footer>
-</footer>
+<h4> <a href="Hw7PartOne.html"><i>Part One</i></a> is a form for the user to choose how to design a few paragraphs on a webpage. The styles that the user selects will be applied immediately and remain until unclicked.</h4><br><br>
 
+<h4> <a href="Hw7PartTwo.html"><i>Part Two</i></a> is a web page with a script that will save two pairs of cookies for the same page - one of the pairs for the name of the user and another one for the username of the user. If it is the first time the user is opening the page on the browser, a form will be presented to type the name of the user and his/her username. If the user has already opened the page and is revisiting the page (while the browser is still opened) a welcome back message will be displayed. </h4><br><br>
+</div>
 </body>
-
-</html> 
+</html>
