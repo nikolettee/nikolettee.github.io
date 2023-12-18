@@ -1,30 +1,94 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="summary of what this page is about">
+<meta name="description" content="Ajax introduction">
 <title>CIS 114 Assignment 8</title>
+<style>
+.main {
+        width:700px;
+	margin:0px auto;
+	text-align:left; 
+	padding: 10px;
+}
+
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
 </head>
 <body>
+<section class="main">
+<h1 style="text-align:center;"> Homework 8 - AJAX Application</h1>
+<br><br>
+<button type="button" onclick="loadDoc()">Get CD collection</button> <br><br>
+<table id="demo"></table>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th></tr>";
+  for (let i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
 
 
+<h2>Explanation of AJAX- the JS workings and AJAX calls</h2>
+<p> A few functions are necessary for the functioning of "getting the CD collection." The javascript relation to the collection is that the supporting function titled myFunction(xml) has a xml file parameter. The contents will be read, through use of a loop, for the length of the file, starting at each new "CD" tag, printing the artist and title. </p>
+<p>The main function loadDoc() connects to the user button and responds to the requests by redirecting to the myFunction(xml) for a user. The AJAX relation to the collection is that information is being read from a web server, after the web page has loaded. The loadDoc() is the primary example to this web development language. When the server response is ready, an HTML table will be formed and parts are displayed from the XML file. </p>
 
-<section>
-<header>
-<h1> <strong> Coming Soon HW 8! </strong> </h1> 
-</header>
-<!--
-<h2> New section </h2>
-<p> a new paragraph with a hyperlink to the main page</p>
--->
-<a href="hw1.html">Back to Main Page (Homework 1)</a>
+<br><br><br><br><br>
+<h2> REST API</h2>
+
+<h1>Title: Food API</h1>
+<h2>Uncover over thousands of recipes and of food products.</h2><br><br>
+
+<h3>Description</h3>
+<p>
+A food API may range from reviewing recipe costs and nutritional values to classifying foods into allergens to computing meal plans, and more! Food and nutrition apps have grown past just being collections of recipes, meal plans and energy values with users looking for personalization--- that is when Food APIs are useful. A recent widely used and popular food API is from Spoonacular. The Spoonacular Food API is an official 
+  API that offers SSL support that performs with natural language queries to search for recipes that are according to certain diets and dietary requirements. Specifically, the application calculates nutritional values, analyzes recipe costs, classifies recipes into types and cuisines, and computes an entire meal plan. 
+</p>
+<p>Type of response file returned (JSON, XML, etc.): the request format is a URI Query String/CRUD with a response format of a JSON.
+<br><br>
+Any type of key to access and use the API: requires API Key, OAuth 1, OAuth2, Other/Custom.
+</p><br>
+
+<h4>While documentation is currently unavailable to provide, some useful features are: </h4>
+<ol>
+<li>Classify a grocery product</li>
+<li>Match recipes to daily calories</li>
+<li>Generate meal plan</li>
+<li>Classify cuisine</li>
+<li>Image analysis and classification</li>
+<li>Visualize recipe nutrition, price breakdown, and equipment</li>
+</ol>
+<br>
+<p> Overall, the variety of its beneficial features allows developers to create different kinds of nutrition and food apps.
+</p>
+<br><br>
+
+<p style="text-align:center;"><a href="hw1.html">Back to Main Page</a></p>
 </section>
-
-<footer>
-</footer>
-
 </body>
-
 </html> 
